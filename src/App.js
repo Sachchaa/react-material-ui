@@ -6,6 +6,11 @@ import { Checkbox, Button, ButtonGroup } from '@material-ui/core'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/core/Menu'
 
 const useStyles = makeStyles({
   root: {
@@ -43,31 +48,43 @@ function CheckboxExample() {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <ButtonStyled />
-        <TextField
-          variant="outlined"
-          color="secondary"
-          type="email"
-          label="Email"
-          placeholder="test@test.com"
-        />
-        <CheckboxExample />
-        <ButtonGroup variant="contained">
-          <Button
-            color="primary"
-            startIcon={<SaveIcon />}
-          >
-            Save
-        </Button>
-          <Button
+      <Container maxWidth='md'>
+        <header className="App-header">
+          <AppBar>
+            <Toolbar>
+              <IconButton>
+                <MenuIcon />
+              </IconButton>
+              Heading
+              <Button>Login</Button>
+            </Toolbar>
+          </AppBar>
+          <ButtonStyled />
+          <TextField
+            variant="outlined"
             color="secondary"
-            startIcon={<DeleteIcon />}
-          >
-            Discard
+            type="email"
+            label="Email"
+            placeholder="test@test.com"
+          />
+          <CheckboxExample />
+          <ButtonGroup variant="contained">
+            <Button
+              color="primary"
+              startIcon={<SaveIcon />}
+            >
+              Save
         </Button>
-        </ButtonGroup>
-      </header>
+            <Button
+              color="secondary"
+              startIcon={<DeleteIcon />}
+            >
+              Discard
+        </Button>
+          </ButtonGroup>
+        </header>
+      </Container>
+
     </div>
   )
 }
